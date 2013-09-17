@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/JonRowe/wally-client"
   s.summary     = %q{Feature uploader for wally}
   s.description = %q{Feature uploader for wally}
+  s.license     = 'GPL-3'
 
   s.files         = `git ls-files`.split("\n")
   s.files << "README.md"
