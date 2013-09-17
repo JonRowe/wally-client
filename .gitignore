@@ -1,0 +1,8 @@
+*.swp
+*.gem
+.bundle
+.rvmrc
+Gemfile.lock
+pkg/*
+.wally
+chromedriver.log
