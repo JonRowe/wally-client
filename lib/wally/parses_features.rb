@@ -17,7 +17,7 @@ module Wally
       parser = Gherkin::Parser::Parser.new(formatter, false, 'root')
       begin
         parser.parse(text, nil, 0)
-      rescue Exception => e
+      rescue
         raise FeatureParseException.new
       end
       hash = formatter.to_hash

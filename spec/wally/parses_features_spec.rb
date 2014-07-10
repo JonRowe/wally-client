@@ -19,7 +19,6 @@ describe "Wally::ParsesFeatures" do
 
   it "raises nice errors" do
     feature = "!WEFFW"
-    error = nil
     expect { output_for feature }.to raise_error Wally::FeatureParseException
   end
 end
