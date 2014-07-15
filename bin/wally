@@ -3,12 +3,6 @@ $:.unshift(File.dirname(__FILE__) + '/../lib') unless $:.include?(File.dirname(_
 
 require 'wally/client'
 
-if File.exist?('.wally')
-  @code = '?authentication_code=' + File.read(".wally").strip
-else
-  @code = ''
-end
-
 if ARGV.first == "push"
   require "restclient"
   require "json"
