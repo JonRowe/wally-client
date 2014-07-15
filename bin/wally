@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 $:.unshift(File.dirname(__FILE__) + '/../lib') unless $:.include?(File.dirname(__FILE__) + '/../lib')
 
+require 'wally/client'
+
 if File.exist?('.wally')
   @code = '?authentication_code=' + File.read(".wally").strip
 else
@@ -24,10 +26,9 @@ if ARGV.first == "push"
       features << {:path => feature_path, :gherkin => gherkin}
     end
   end
-  RestClient.put "#{ARGV[1]}/features/#{@code}", features.to_json, {:content_type => :json, :accept => :json}
+  Wally::Client::Command.new(ARGV[1]).push features
 elsif ARGV[0] == "destroy"
-  require "restclient"
-  RestClient.delete "#{ARGV[1]}#{@code}"
+  Wally::Client::Command.new(ARGV[1]).destroy
 else
   puts "Usage:"
   puts "  wally push <url>/projects/<project-name> <features-dir>"
