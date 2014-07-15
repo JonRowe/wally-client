@@ -2,16 +2,4 @@
 $:.unshift(File.dirname(__FILE__) + '/../lib') unless $:.include?(File.dirname(__FILE__) + '/../lib')
 
 require 'wally/client'
-
-if ARGV.first == "push"
-  require "restclient"
-  require "json"
-  features = Wally::Client::Parser.parse ARGV[2..-1]
-  Wally::Client::Command.new(ARGV[1]).push features
-elsif ARGV[0] == "destroy"
-  Wally::Client::Command.new(ARGV[1]).destroy
-else
-  puts "Usage:"
-  puts "  wally push <url>/projects/<project-name> <features-dir>"
-  puts "  wally destroy <url>/projects/<project-name>"
-end
+Wally::Client::CLI.run ARGV
