@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   
   if RUBY_VERSION < '2'
     s.add_development_dependency 'public_suffix', '~> 1.4.6'
+    s.add_development_dependency 'mime-types', '< 3'
   end
   if RUBY_VERSION < '2.2.0'
     s.add_development_dependency 'activemodel', '< 5'
