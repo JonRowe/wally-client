@@ -18,13 +18,17 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency "rest-client"
+  
   s.add_runtime_dependency "gherkin"
   
   if RUBY_VERSION < '2'
+    s.add_runtime_dependency "rest-client", '< 2'
     s.add_development_dependency 'public_suffix', '~> 1.4.6'
     s.add_development_dependency 'mime-types', '< 3'
+  else
+    s.add_runtime_dependency "rest-client"
   end
+
   if RUBY_VERSION < '2.2.0'
     s.add_development_dependency 'activemodel', '< 5'
   end
