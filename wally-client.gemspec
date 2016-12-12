@@ -21,6 +21,9 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "rest-client"
   s.add_runtime_dependency "gherkin"
   
+  if RUBY_VERSION < '2'
+    s.add_development_dependency 'public_suffix', '~> 1.4.6'
+  end
   if RUBY_VERSION < '2.2.0'
     s.add_development_dependency 'activemodel', '< 5'
   end
