@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "gherkin"
   
   if RUBY_VERSION < '2.2.0'
-    s.add_development_dependency 'active_model', '< 5'
+    s.add_development_dependency 'activemodel', '< 5'
   end
 
   s.add_development_dependency "rspec"
